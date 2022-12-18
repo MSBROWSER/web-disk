@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BSODBOX下载页面</title>
+</head>
+<style>
+*{
+  margin: 0;
+  padding: 0;
+}
+.bg{
+  background:url(1.jpg) no-repeat center center fixed;/* 与下面的blur_box:before中的background设置一样 */
+  width:100%;
+  height:100%;
+}
+.blur_box{
+  z-index: 0;/* 为不影响内容显示必须为最高层 */
+  position: relative;
+  overflow: hidden;
+}
+.blur_box:before{
+  content: "";/* 必须包括 */
+  position: absolute;/* 固定模糊层位置 */
+  width:300%;
+  height:300%;
+  left: -100%;/* 回调模糊层位置 */
+  top: -100%;/* 回调模糊层位置 */
+  background:url(1.jpg) no-repeat center center fixed;/* 与上面的bg中的background设置一样 */
+  filter: blur(20px);/* 值越大越模糊 */
+  z-index: -2;/* 模糊层在最下面 */
+}
+.rgba{
+  background-color: rgba(0, 0, 0, 0.2);/* 为文字更好显示，将背景颜色加深 */
+  position: absolute;/* 固定半透明色层位置 */
+  width:100%;
+  height:100%;
+  z-index: -1;/* 中间是rgba半透明色层 */
+}
+.content_text{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 50px 30px;
+  line-height: 28px;
+}
+article{
+  width:40%;
+  height:400px;
+  margin:120px auto;
+}
+</style>
+<body
+  <div class="bg">
+    <article class="blur_box">
+      <div class="rgba"></div><!-- 写在这其实和blur_box:before效果相同，但已经设置过blur_box:before了 -->
+      <div class="content_text">
+        <h1>--- Msedge的小网盘 ---</h1>
+        <h3>bsodbox.zip 下载</h3>
+        <p>上传于 2022/12/18 13:47:04</p>
+        <br>
+        <hr>
+        <img src = "zipped.png"><p>bsodbox.zip</p>
+        <hr>
+        <a href = "https://msbrowser.github.io/res/bsodbox.zip">主要线路1 - github服务器</a><br>
+        <a href = "https://pan.huang1111.cn/s/4Z7dSg">备用线路1 - huang1111</a>
+        <br><br>
+        <p>Msedge_系统浏览器的网站&nbsp;&nbsp;2022</p>
+        <p>Msedge&nbsp;Netdisk</p>
+    </article>
+  </div>
+</body>
+</html>
